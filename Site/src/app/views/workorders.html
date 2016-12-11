@@ -1,0 +1,119 @@
+<style type="text/css">
+    .uib-datepicker-popup.dropdown-menu {
+    padding: 0;
+    background-color: #fbf7f2;
+    z-index: 3;
+    }
+ 
+    .uib-datepicker-popup .btn-default {
+        color: #333;
+        background-image: linear-gradient(to bottom, #fbf7f2 0, #fbf7f2 100%);
+        border-color: #fdfaf5;
+        text-shadow: 0 1px 0 transparent;
+    }
+    
+    .uib-datepicker-popup .btn-default:hover, .uib-datepicker-popup .btn-default:active:hover, .uib-datepicker-popup .btn-default.active:focus{
+        color: #fff;
+        background: #a79f91;
+        border-color: #797367;
+        text-shadow: 0 1px 0 transparent;
+    }
+    .text-info {
+        color: #333;
+    }
+    .uib-datepicker-popup .btn-default.active:hover, .uib-datepicker-popup .btn-default.active {
+            background-image: linear-gradient(to bottom, #a79f91 0, #a79f91 100%);
+            background-color: #a79f91;
+        border-color: #797367;
+        color: #fff;
+    }
+    
+    .uib-datepicker-popup .btn {
+        min-width: inherit;
+    }
+    
+    .uib-datepicker-popup .uib-month .btn {
+        min-width: 100%;
+    }
+</style>
+
+<div>
+
+    <dialog data-visible="vm.ShowDeleteModal" data-backdrop="static" data-keyboard="true">
+        <dialog-header> Eliminar Orden de trabajo</dialog-header>
+        <dialog-body>
+            <p>¿Seguro que quieres borrar la orden de trabajo?</p>
+        </dialog-body>
+        <dialog-footer>
+            <button ng-click="vm.ShowDeleteModal = false"> Cancelar</button>
+            <button ng-click="vm.deleteClickCmd()"> Eliminar</button>
+        </dialog-footer>
+    </dialog>
+
+    <form>
+        <label>Descripcion</label><br />
+        <input type="text" data-ng-model="vm.Filtros.Description" />
+        <br />
+        <label>Nombre del proyecto</label><br />
+        <select  type="text" data-ng-model="vm.Filtros.projectName" data-ng-options="Project.Id as Project.Description for Project in vm.Projects" />
+        <br/>
+        <label>Cliente</label><br />
+        <select  type="text" data-ng-model="vm.Filtros.Username" data-ng-options="User.Name for User in vm.Users"/>
+        <br/>
+        <label>Fecha desde</label><br />
+        <input  type="date" data-ng-model="vm.Filtros.PlannedDate1"/>
+        <br/>
+        <label>Fecha hasta</label><br />
+        <input  type="date" data-ng-model="vm.Filtros.PlannedDate2" />
+        <br/>
+        <!--<label>Estado</label><br />
+        <input  type="text" data-ng-model="vm.Filtros.WorkOrderStatus" />-->
+
+    </form>
+
+    <div>
+        <button data-ng-click="vm.obtenerPageWO()" >Filtrar </button>
+        <button data-ng-click="vm.resetFiltros()">Reinicar Filtros </button>
+        <br/>
+    </div>
+
+    <td><a href="#/workorder/">Nuevo</a></td>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Codigo</th>
+                <th>Descripcion</th>
+                <th>Nombre Proyecto</th>
+                <th>Nombre Usuario</th>
+                <th>Fecha planificada</th>
+                <th>Horas estimadas</th>
+                <th>ETC</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="workOrder in vm.WorkOrders" class="">
+                <th scope="row">{{ $index }}</th>
+                <td>{{ workOrder.OTCode }}</td>
+                <td>{{ workOrder.Description }}</td>
+                <td>{{ workOrder.projectName }}</td>
+                <td>{{ workOrder.Username }}</td>
+                <td>{{ workOrder.PlannedDate }}</td>
+                <td>{{ workOrder.EstimatedDuration }}</td>
+                <td>{{ workOrder.RemainingDuration }}</td>
+                <td data-ng-if="workOrder.WorkOrderStatus == 0">Terminada</td>
+                <td data-ng-if="workOrder.WorkOrderStatus == 1">Pendiente</td>
+                <td data-ng-if="workOrder.WorkOrderStatus == 2">En proceso</td>
+                <td><a href="#/workorder/{{workOrder.Id}}">Detalle</button></td>
+                <td><button data-ng-click="vm.deleteModal(workOrder.Id)">Borrar</button></td>
+           </tr>
+
+        </tbody>
+
+    </table>
+
+    <button ng-disabled="!vm._canGoBack()" ng-click="vm._clickGoBack()">Retroceder</button>
+    <button ng-disabled="!vm._canAdvance()" ng-click="vm._clickAdvanced()">Avanzar</button>
+
+</div>

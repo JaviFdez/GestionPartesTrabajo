@@ -1,0 +1,74 @@
+{
+    "name": "angular-typescript-seed",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Seed project for angular1 with typescript apps. http://angularjs.org/",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dgzornoza/angular-typescript-seed.git"
+    },
+    "keywords": [
+        "angular",
+        "seed",
+        "typescript"
+    ],
+    "author": "David González Zornoza",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/dgzornoza/angular-typescript-seed/issues"
+    },
+    "homepage": "https://github.com/dgzornoza/angular-typescript-seed#readme",
+
+    "scripts": {
+        "postinstall": "bower install && npm run build.modernizr && typings install",
+        "build.modernizr": "cd ./bower_components/modernizr && npm install && node ./bin/modernizr -c ../../tools/modernizr-config.json -d ./dist",
+
+        "prestart": "npm install && npm run iexplore",
+        "start": "http-server -a localhost -p 8000 -c-1 ./wwwroot",
+
+        "pretest" :"npm run rebuild-debug && gulp build-tests",
+	    "test": "karma start ./wwwroot/tests/karma.conf.js",
+
+        "build-debug": "gulp build-debug",
+        "rebuild-debug": "gulp clean-output && gulp build-debug",
+
+
+        "watch": "npm install && npm run build-debug && gulp watch-source",
+
+        "iexplore": "gulp build-debug && start iexplore http://localhost:8000/",
+        "chrome": "gulp build-debug && start chrome http://localhost:8000/",
+        "edge": "gulp build-debug && start edge http://localhost:8000/",
+
+        "bower": "bower",
+        "gulp": "gulp"
+    },
+
+    "devDependencies": {
+        "bower": "^1.7.9",
+
+        "del": "^2.2.0",
+        "gulp": "^3.9.1",
+        "gulp-debug": "^2.1.2",
+        "gulp-postcss": "^6.1.0",
+        "gulp-template": "^4.0.0",
+        "gulp-tslint": "^5.0.0",
+        "gulp-typescript": "2.13.0",
+        "gulp-sourcemaps": "^1.6.0",
+
+        "http-server": "^0.9.0",
+
+        "jasmine-core": "^2.4.1",
+        "karma": "~0.13.22",
+        "karma-chrome-launcher": "^1.0.1",
+        "karma-firefox-launcher": "^1.0.0",
+        "karma-ie-launcher": "^1.0.0",
+        "karma-jasmine": "^1.0.2",
+        "karma-requirejs": "^1.0.0",
+        "ng-midway-tester": "^2.0.5",
+
+        "requirejs": "2.2.0",
+        "tslint": "^3.8.1",
+        "typescript": "1.8.10",
+        "typings": "0.8.1"
+    }
+}

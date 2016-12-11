@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{48BC11AF-7F33-4305-B88D-CF565E7EF04C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GestionPartesTrabajo.Nunsys.Data.Repository</RootNamespace>
+    <AssemblyName>GestionPartesTrabajo.Nunsys.Data.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NunsysCore.Datos">
+      <HintPath>..\lib\NunsysCore.Datos.dll</HintPath>
+    </Reference>
+    <Reference Include="NunsysCore.Dominio">
+      <HintPath>..\lib\NunsysCore.Dominio.dll</HintPath>
+    </Reference>
+    <Reference Include="NunsysCore.IT">
+      <HintPath>..\lib\NunsysCore.IT.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Customers1Repository.cs" />
+    <Compile Include="Imputations1Repository.cs" />
+    <Compile Include="ObjectMapping.cs" />
+    <Compile Include="ProjectsRepository.cs" />
+    <Compile Include="ProjectTaskRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Imputations2Repository.cs" />
+    <Compile Include="UnitOfWorkPrincipal.cs" />
+    <Compile Include="SampleRepository.cs" />
+    <Compile Include="Users1Repository.cs" />
+    <Compile Include="WorkOrdersRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestionPartesTrabajo.Nunsys.Application.Adapters\GestionPartesTrabajo.Nunsys.Application.Adapters.csproj">
+      <Project>{3aa625d4-3f67-4f65-bbc4-9bc9a5ab5300}</Project>
+      <Name>GestionPartesTrabajo.Nunsys.Application.Adapters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestionPartesTrabajo.Nunsys.Data.Interfaces\GestionPartesTrabajo.Nunsys.Data.Interfaces.csproj">
+      <Project>{50f38048-1179-4bc4-b4fe-32bacb6fd3bc}</Project>
+      <Name>GestionPartesTrabajo.Nunsys.Data.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestionPartesTrabajo.Nunsys.Domain\GestionPartesTrabajo.Nunsys.Domain.csproj">
+      <Project>{91c0587e-b293-431d-9b71-9a8382d7cdf7}</Project>
+      <Name>GestionPartesTrabajo.Nunsys.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

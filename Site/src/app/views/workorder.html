@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+   
+   <form name="wOForm">
+       <div class="panel panel-default">
+
+			<div>
+                <label>Id</label>
+				<input name="code" type="text" disabled="true" data-ng-model="vm.WOrder.Id" />
+                
+                <label>Descripcion</label>
+				<input name="code" type="text" data-ng-model="vm.WOrder.Description" />
+
+                <label>Proyecto</label>
+				<select  type="text" data-ng-click="vm._getProjectTasks()" data-ng-model="vm.WOrder.projectName" data-ng-options="Project.Description as Project.Description for Project in vm.Projects">
+                </select>
+
+                <label>Tecnico</label><br />
+                <select type="text" data-ng-model="vm.WOrder.Username" data-ng-options="User.Name as User.Name for User in vm.Users"> 
+                </select>
+                <br/>
+
+                <label>Tareas De Proyecto</label><br />
+                <select type="text" data-ng-model="vm.WOrder.IdProjectTask" data-ng-options="ProjectTask.Id as ProjectTask.Description for ProjectTask in vm.ProjectTasks"> 
+                </select>
+                <br/>
+
+                <label>Fecha planificada</label>
+				<input name="code" type="date"  data-ng-model="vm.WOrder.PlannedDate" />
+
+                <label>Hora estimada</label>
+				<input name="code" type="text" data-ng-model="vm.WOrder.EstimatedDuration" />
+
+                <label>ETC</label>
+				<input name="code" type="text" data-ng-model="vm.WOrder.RemainingDuration" />
+
+                <!--<label>Estado</label>
+				<select type="text" data-ng-model="vm.WOrder.WorkOrderStatus" data-ng-options="vm.EnumStatus" />-->
+
+
+                <div class="Botonera">
+                    <a href="#/workorders">Atrás</a> 
+                    <button data-ng-click="vm._saveClickCmd()" data-ng-disabled="!vm._saveClickCanCmd()" >Guardar</button></td>
+                </div>
+
+</div>

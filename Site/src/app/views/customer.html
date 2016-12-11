@@ -1,0 +1,38 @@
+<div>
+
+
+
+
+	
+	<form name="customerForm">
+		<div class="panel panel-default">
+
+			<div>
+				<label>Id</label>
+				<input name="code" type="text" disabled="true" data-ng-model="vm.Customer.Id" />
+
+				<label>Number</label>
+				<input name="code" type="text" required data-ng-model="vm.Customer.Number" />
+
+				<label>Name</label>
+				<input name="code" type="text" required data-ng-model="vm.Customer.Name" />
+
+			</div>
+		</div>
+
+		<div class="panel-heading">
+			<button data-ng-click="vm.saveClickCmd()" data-ng-disabled="!vm.saveClickCanCmd()">Guardar </button>
+		</div>
+
+
+
+		<div class="Botonera">
+			<a href="#/customers">Atrás</a>
+
+
+
+		</div>
+
+	</form>
+
+</div>

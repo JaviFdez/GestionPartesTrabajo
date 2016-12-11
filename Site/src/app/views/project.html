@@ -1,0 +1,37 @@
+<div>
+
+    <form name="projectForm">
+		<div class="panel panel-default">
+
+			<div>
+				<label>Id</label>
+				<input name="code" type="text" disabled="true" data-ng-model="vm.Project.Id" />
+
+				<label>CodeProject</label>
+				<input name="code" type="text" required data-ng-model="vm.Project.ProjectCode" />
+
+				<label>Description</label>
+				<input name="code" type="text" required data-ng-model="vm.Project.Description" />
+
+                <label>Id cliente</label>
+				<select name="code" type="text" required data-ng-model="vm.Project.IdCustomer" data-ng-options="Customer.Id as Customer.Name for Customer in vm.Customers"/>
+
+			</div>
+		</div>
+
+		<div class="panel-heading">
+			<button data-ng-click="vm.saveClickCmd()" data-ng-disabled="!vm.saveClickCanCmd()">Guardar </button>
+		</div>
+
+
+
+		<div class="Botonera">
+			<a href="#/projects">Atrás</a>
+
+
+
+		</div>
+
+	</form>
+
+</div>

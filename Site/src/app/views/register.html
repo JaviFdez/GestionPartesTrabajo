@@ -1,0 +1,10 @@
+<div class= "Login">
+	 <form name="form">
+        <input type="text" name="name" placeholder="usuario" data-ng-model="vm.User.UserName" required/>
+        <input type="email" name placeholder="email@email.com" data-ng-model="vm.User.Email" />
+        <input type="text" placeholder="XXXXXXXXX" data-ng-model="vm.User.PhoneNumber" />
+        <input type="password" name="password" placeholder="contraseña" data-ng-model="vm.User.Password" required />
+        <input type="password" name="confirmpassword" placeholder="confirmarcontraseña" data-ng-model="vm.User.ConfirmPassword" required/>
+        <button data-ng-click="vm._register()">Registrarse</button>
+    </form>
+</div>

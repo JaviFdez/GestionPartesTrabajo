@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{50F38048-1179-4BC4-B4FE-32BACB6FD3BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GestionPartesTrabajo.Nunsys.Data.Interfaces</RootNamespace>
+    <AssemblyName>GestionPartesTrabajo.Nunsys.Data.Interfaces</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NunsysCore.Datos">
+      <HintPath>..\lib\NunsysCore.Datos.dll</HintPath>
+    </Reference>
+    <Reference Include="NunsysCore.Dominio">
+      <HintPath>..\lib\NunsysCore.Dominio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ICustomers1Repository.cs" />
+    <Compile Include="IImputations1Repository.cs" />
+    <Compile Include="IImputations2Repository.cs" />
+    <Compile Include="IProjectTasksRepository.cs" />
+    <Compile Include="IProyectsRepository.cs" />
+    <Compile Include="IUnitOfWorkPrincipal.cs" />
+    <Compile Include="ISampleRepository.cs" />
+    <Compile Include="IUsers1Repository.cs" />
+    <Compile Include="IWorkOrdersRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestionPartesTrabajo.Nunsys.Application.Adapters\GestionPartesTrabajo.Nunsys.Application.Adapters.csproj">
+      <Project>{3aa625d4-3f67-4f65-bbc4-9bc9a5ab5300}</Project>
+      <Name>GestionPartesTrabajo.Nunsys.Application.Adapters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestionPartesTrabajo.Nunsys.Domain\GestionPartesTrabajo.Nunsys.Domain.csproj">
+      <Project>{91c0587e-b293-431d-9b71-9a8382d7cdf7}</Project>
+      <Name>GestionPartesTrabajo.Nunsys.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

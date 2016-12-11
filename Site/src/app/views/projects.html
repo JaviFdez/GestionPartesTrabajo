@@ -1,0 +1,59 @@
+<div>
+
+    <dialog data-visible="vm.ShowDeleteModal" data-backdrop="static" data-keyboard="true">
+        <dialog-header> Eliminar proyecto</dialog-header>
+        <dialog-body>
+            <p>¿Seguro que quieres borrar el proyecto?</p>
+        </dialog-body>
+        <dialog-footer>
+            <button ng-click="vm.ShowDeleteModal = false"> Cancelar</button>
+            <button ng-click="vm.deleteClickCmd()"> Eliminar</button>
+        </dialog-footer>
+    </dialog>
+
+    <form>
+        <label for="name">Codigo del Proyecto</label><br />
+        <input type="text" data-ng-model="vm.Filtros.ProjectCode" />
+        <br />
+        <label for="email">Descripcion</label><br />
+        <input  type="text" data-ng-model="vm.Filtros.Description" />
+        <br/>
+        <label for="email">Cliente</label><br />
+        <input  type="text" data-ng-model="vm.Filtros.NameCustomer" />
+
+    </form>
+
+    <div>
+        <button data-ng-click="vm.obtenerPageProjects()" >Filtrar </button>
+        <button data-ng-click="vm.resetFiltros()">Reinicar Filtros </button>
+        <br/>
+    </div>
+
+    <td><a href="#/project/">Nuevo</a></td>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Codigo</th>
+                <th>Descripcion</th>
+                <th>Cliente</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="project in vm.Projects" class="">
+                <th scope="row">{{ $index }}</th>
+                <td>{{ project.ProjectCode }}</td>
+                <td>{{ project.Description }}</td>
+                <td>{{ project.NameCustomer }}</td>
+                <td><a href="#/project/{{project.Id}}">Detalle</button></td>
+                <td><button data-ng-click="vm.deleteModal(project.Id)">Borrar</button></td>
+                </tr>
+
+        </tbody>
+
+    </table>
+
+    <button ng-disabled="!vm._canGoBack()" ng-click="vm._clickGoBack()">Retroceder</button>
+    <button ng-disabled="!vm._canAdvance()" ng-click="vm._clickAdvanced()">Avanzar</button>
+
+</div>

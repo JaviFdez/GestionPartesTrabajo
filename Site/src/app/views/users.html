@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="actions">
+            <button type="button" class="btn btn-default btn-sm">Nuevo</button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Surname1</th>
+                    <th>Surname2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="user in vm.Users" class="">
+                    <th scope="row">{{ $index }}</th>
+                    <td>{{ user.Name }}</td>
+                    <td>{{ user.Surname1 }}</td>
+                    <td>{{ user.Surname2 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

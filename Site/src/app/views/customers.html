@@ -1,0 +1,30 @@
+<div>
+
+    <td><a href="#/customer/">Nuevo</a></td>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Number</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="customer in vm.Customers | limitTo: 1: vm.SizePage" class="">
+                <th scope="row">{{ $index }}</th>
+                <td>{{ customer.Id }}</td>
+                <td>{{ customer.Number }}</td>
+                <td>{{ customer.Name }}</td>
+                <td><a href="#/customer/{{customer.Id}}">Detalle</button></td>
+                <td><button data-ng-click="vm.deleteClickCmd(customer.Id)">Borrar</button></td>
+                </tr>
+
+        </tbody>
+
+    </table>
+
+    <button ng-disabled="vm._canGoBack()" ng-click="vm._clickGoBack()">Retroceder</button>
+    <button ng-disabled="vm._canAdvance()" ng-click="vm._clickAdvanced()">Avanzar</button>
+
+</div>
